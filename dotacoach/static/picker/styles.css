@@ -1,0 +1,175 @@
+
+:root {
+  --twisted_angle: 35deg;
+}
+
+
+html {
+  background-color: black;
+  color: white;
+}
+
+header {
+  height: 100px;
+  width: auto;
+}
+
+
+.test {
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  color: white;
+}
+
+body {
+  color: white;
+  width: 900px;
+  margin: auto;
+}
+
+
+button {
+  padding: 0px;
+  border: none;
+}
+
+label {
+  color: white;
+}
+
+
+
+div.options {
+  position: relative;
+  color: white;
+  font-size: 20px;
+  margin: auto;
+  height: 100px;
+  width: 800px;
+}
+
+div.sub_options {
+  float: left;
+  margin: 20px;
+  width: 200px;
+}
+
+
+button.option_submit {
+  position: absolute;
+  width: 150px;
+  height: 30px;
+  right: 20px;
+  bottom: 30px;
+  background: linear-gradient(#004d00, #008000);
+  color: white;
+}
+
+
+.information {
+  margin: auto;
+  text-align: center;
+  width: 800px;
+  height: 160px;
+  font-size: 20px;
+  /* border-top: 2px solid #400080;
+  border-bottom: 2px solid #400080; */
+  background-color: #800000;
+}
+
+.match_info {
+  margin: auto;
+  padding: 20px;
+}
+
+
+.result {
+  margin: auto;
+  height: 80px;
+  width: 800px;
+  text-align: center;
+  font-size: 50px;
+  /* background-color: #4d0000; */
+}
+
+
+.arena_wrapper {
+  position: relative;
+  margin: auto;
+  top: 60px;
+  height: 690px;
+  width: 800px;
+  border: 3px solid #800000;
+  /* border-radius: 5px; */
+}
+
+
+
+.pool {
+  /* position: absolute; */
+  left: 200px;
+  margin: auto;
+  height: 660px;
+  width: 370px;
+  transform: skew(var(--twisted_angle));
+}
+.single {
+  transform: skew(calc(0deg - (var(--twisted_angle))));
+  float: left;
+  margin: 4px 2px;
+  height: 45px;
+  width: 35px;
+}
+
+
+.radiant_selected {
+  position: absolute;
+  margin: auto;
+  bottom: -25px;
+  left: 0px;
+}
+ .dire_selected {
+   position: absolute;
+   margin: auto;
+   top: -25px;
+   right: 10px;
+}
+.single_selected {
+  float: left;
+  margin-left: 7px;
+  height: 70px;
+  width: 60px;
+}
+
+
+.pick_reminder {
+  position: absolute;
+  color: white;
+  font-size: 20px;
+}
+#radiant_pick_reminder {
+  left: 7px;
+  bottom: 60px;
+  color: #222222;
+}
+#dire_pick_reminder {
+  right: 7px;
+  top: 60px;
+  color: #222222;
+}
+
+
+.options {
+  height: 100px;
+  width: auto;
+}
+
+
+img {
+  width: 100%;
+  height: 100%;
+}

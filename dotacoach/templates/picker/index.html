@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dota Draft</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'picker/styles.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="{% static 'picker/script.js' %}"></script>
+</head>
+<body>
+  <header>
+    <h1>DOTA DRAFT</h1>
+  </header>
+  <input type="hidden" name="side" value="" id="side_value">
+  <input type="hidden" name="level" value="" id="level_value">
+  <input type="hidden" name="pre_selected_radiant" value="{{ radiant_heroes }}" id="pre_selected_radiant">
+  <input type="hidden" name="pre_selected_dire" value="{{ dire_heroes }}" id="pre_selected_dire">
+  <input type="hidden" name="round_number" value="0" id="round_number">
+  <input type="hidden" name="pick_order" value="{{ pick_order }}" id="pick_order">
+  <script>
+    var bot_select_url = "{% url 'bot_select' %}";
+    var result_url = "{% url 'result' %}";
+  </script>
+
+
+  <div class="options">
+    <div class="sub_options" id="side_option">
+      choose your side <br>
+      <select class="side_select" name="side_select" id="side_select">
+        <option value="0">RADIANT</option>
+        <option value="1">DIRE</option>
+      </select>
+    </div>
+    <div class="sub_options" id="level_option">
+      choose bot level <br>
+      <select class="level_select" name="level_select" id="level_select">
+        <option value="easy">EASY</option>
+        <option value="medium">MEDIUM</option>
+        <option value="hard">HARD</option>
+        <option value="crazy">CRAZY</option>
+      </select>
+    </div>
+    <button class="option_submit" type="button" name="submit" id="start">START DRAFT</button>
+  </div>
+
+  <div class="result" id="result">
+  </div>
+
+  <!-- <div class="information">
+    <div class="match_info">
+      Your side: . Bot level: .
+    </div>
+    <div class="result" id="result">
+      Radiant Victory
+    </div>
+  </div> -->
+
+
+  <div class="arena_wrapper">
+    <div class="pool">
+      {% for hero, path in hero_image_paths.items %}
+        <button class="single" type="button" value="{{ hero }}" name="cur_selected" id="button_{{ hero }}">
+          <img src="{% static path %}" alt="{{ hero }}" id="image_{{ hero }}">
+        </button>
+      {% endfor %}
+    </div>
+
+    <div class="radiant_selected">
+      {% for path in radiant_image_paths %}
+        <div class="single_selected" id="radiant_selected_{{ forloop.counter }}">
+          <img src="{% static path %}" id="radiant_selected_{{ forloop.counter }}_image">
+        </div>
+      {% endfor%}
+    </div>
+    <div class="pick_reminder" id="radiant_pick_reminder">
+      RADIANT'S TURN TO PICK {{ radiant_heroes }}
+    </div>
+
+    <div class="dire_selected">
+      {% for path in dire_image_paths %}
+      <div class="single_selected" id="dire_selected_{{ forloop.counter }}">
+        <img src="{% static path %}" id="dire_selected_{{ forloop.counter }}_image">
+      </div>
+      {% endfor%}
+    </div>
+    <div class="pick_reminder" id="dire_pick_reminder">
+      DIRE'S TURN TO PICK {{ dire_heroes }}
+    </div>
+  </div>
+
+
+
+
+</body>
+</html>
