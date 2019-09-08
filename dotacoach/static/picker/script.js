@@ -4,7 +4,7 @@ $(document).ready(function(){
   // update the options
   $("#start").click(
     function(){
-      var clickEnabled = true;
+      clickEnabled = true;
       var side = $("#side_select :selected").val();
       var level = $("#level_select :selected").val();
       var last_selected = $("#pre_selected_radiant").val().concat($("#pre_selected_dire").val());
