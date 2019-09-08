@@ -39,6 +39,7 @@ class Random_picker:
 class Greedy_picker:
     def __init__(self, side='Radiant', pool=set(list(range(1,24)) + list(range(25, 115)) + [119,120])):
         self.pool = pool
+        self.side = side
 
 
     def pick(self, Round, picked_r, picked_d, avail=None, Max_sampling=0):
