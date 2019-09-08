@@ -44,7 +44,6 @@ def index(request):
 
 
 def bot_select(request):
-    # print(request.GET)
     bot_side = request.GET.get('bot_side')
     level = request.GET.get('level')
     pre_selected_radiant = request.GET.get('pre_selected_radiant')
@@ -69,7 +68,6 @@ def bot_select(request):
     data['dire_selected'] = pre_selected_dire
     data['bot_side'] = bot_side
     data['bot_selected_heroes_images'] = ["/static/picker/images/hero_grey/{}.jpg".format(hero) for hero in bot_selected_heroes]
-    print(data)
     return JsonResponse(data)
 
 
@@ -89,15 +87,11 @@ def bot_select_single(round_number, bot_side, pre_selected_radiant, pre_selected
         picker = Greedy_picker(side=side_map[bot_side])
         cur_picked_id = picker.pick(Round=round_number, picked_r=picked_ids_radiant, picked_d=picked_ids_dire)
     if level == 'hard':
-        t0 = time.time()
         picker = Monte_Carlo_picker(side=side_map[bot_side])
         cur_picked_id = picker.pick(Round=round_number, picked_r=picked_ids_radiant, picked_d=picked_ids_dire, Max_sampling=1500)
-        print('time: ', time.time()-t0)
     if level == 'crazy':
-        t0 = time.time()
         picker = Monte_Carlo_picker(side=side_map[bot_side])
         cur_picked_id = picker.pick(Round=round_number, picked_r=picked_ids_radiant, picked_d=picked_ids_dire, Max_sampling=7500)
-        print('time: ', time.time()-t0)
     # map name to id
     cur_picked_name = NameId.objects.filter(id=cur_picked_id)[0].name
     return cur_picked_name
@@ -127,6 +121,6 @@ def predict(radiant_heroes, dire_heroes):
     lineup = np.array(radiant_ids + dire_ids).reshape(1, 10)
     win_probability = predictor.predict(lineup)
     K.clear_session()
-    print('\n', lineup, win_probability)
+    # print('\n', lineup, win_probability)
     win_team = '0' if win_probability > 0.5 else '1'
     return win_team
