@@ -1,10 +1,15 @@
 
 $(document).ready(function(){
   var clickEnabled = true;
+  var startEnabled = true;
   // update the options
   $("#start").click(
     function(){
+      if (!startEnabled) {
+        return;
+      }
       clickEnabled = true;
+      startEnabled = true;
       var side = $("#side_select :selected").val();
       var level = $("#level_select :selected").val();
       var last_selected = $("#pre_selected_radiant").val().concat($("#pre_selected_dire").val());
@@ -63,6 +68,7 @@ $(document).ready(function(){
     }
     // disable select new hero
     clickEnabled = false;
+    startEnabled = false;
     // get essential data
     data = {};
     data['bot_side'] = bot_side;
@@ -117,6 +123,7 @@ $(document).ready(function(){
         }
         // enable select
         clickEnabled = true;
+        startEnabled = true;
       }
     });
   }
@@ -201,6 +208,7 @@ function show_result() {
       $("#result").text('DIRE VICTORY');
       $("#result").css("background-color","#4d0000");
     }
+    startEnabled = true;
   })
 }
 

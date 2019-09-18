@@ -107,7 +107,7 @@ def result(request):
 
 
 def predict(radiant_heroes, dire_heroes):
-    time.sleep(2)
+    time.sleep(0.5)
     # load predictor
     K.clear_session()
     module_dir = os.path.dirname(__file__)
