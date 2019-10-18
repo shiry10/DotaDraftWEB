@@ -10,6 +10,10 @@
   <link rel="stylesheet" type="text/css" href="{% static 'picker/styles.css' %}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="{% static 'picker/script.js' %}"></script>
+  <script>
+    var bot_select_url = "{% url 'bot_select' %}";
+    var result_url = "{% url 'result' %}";
+  </script>
 </head>
 <body>
   <header>
@@ -21,10 +25,7 @@
   <input type="hidden" name="pre_selected_dire" value="{{ dire_heroes }}" id="pre_selected_dire">
   <input type="hidden" name="round_number" value="0" id="round_number">
   <input type="hidden" name="pick_order" value="{{ pick_order }}" id="pick_order">
-  <script>
-    var bot_select_url = "{% url 'bot_select' %}";
-    var result_url = "{% url 'result' %}";
-  </script>
+
 
 
   <div class="options">
@@ -43,6 +44,18 @@
         <option value="hard">HARD</option>
         <option value="crazy">CRAZY</option>
       </select>
+    </div>
+    <div class="popup" onclick="poptips()"> Tips?
+      <span class="popuptext" id="tips">
+        1. Choose your side and bot level, then click start draft to start. <br>
+        2. Radiant picks first. Picking order is Radiant, Dire, Dire, Radiant, Radiant, Dire, Dire, Radiant, Radiant, Dire. <br>
+        3. It takes quite a long time to react for Hard level (~5 seconds) and Crazy level (10 ~ 20 seconds). <br>
+        4. See results after ten heroes are all set. <br>
+        5. Feel free to restart the game by clicking start draft at any time in your turn or after the match ends. <br>
+        <br>
+        If you have any other questions, please go <a href="https://github.com/shiry10/DotaDraftWEB">github repo</a> for details or report issues. <br>
+        Thanks for playing!
+      </span>
     </div>
     <button class="option_submit" type="button" name="submit" id="start">START DRAFT</button>
   </div>
@@ -91,8 +104,6 @@
       DIRE'S TURN TO PICK {{ dire_heroes }}
     </div>
   </div>
-
-
 
 
 </body>

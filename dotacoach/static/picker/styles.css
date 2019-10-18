@@ -63,8 +63,8 @@ button.option_submit {
   position: absolute;
   width: 150px;
   height: 30px;
-  right: 20px;
-  bottom: 30px;
+  right: 0px;
+  bottom: 20px;
   background: linear-gradient(#004d00, #008000);
   color: white;
 }
@@ -172,4 +172,56 @@ button.option_submit {
 img {
   width: 100%;
   height: 100%;
+}
+
+
+
+/* Popup container - can be anything you want */
+.popup {
+  color: grey;
+  font-size: 15px;
+  position: relative;
+  top: 20px; 
+  float: right;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  color: grey;
+  font-size: 10px;
+  width: 500px;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  margin-left: -500px;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
 }

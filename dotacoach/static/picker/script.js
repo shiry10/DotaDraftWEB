@@ -226,3 +226,13 @@ function find_pos(side, pick_order, round_number) {
 
 
 })
+
+
+
+
+
+// pop tips
+function poptips() {
+  var popup = document.getElementById("tips");
+  popup.classList.toggle("show");
+}
