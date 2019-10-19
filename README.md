@@ -1,7 +1,7 @@
 # DotaDraftWEB
 A Dota 2 drafting platform
 
-Go http://18.223.44.88:8000/ to play.
+Go dotaherodraft.com to play.
 
 Tips:
 1. Choose your side and bot level, then click *start draft* to start.
