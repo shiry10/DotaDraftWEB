@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'dota',
         'USER': 'root',
         'PASSWORD': 'Dotabp_2019',
-        'HOST': '18.223.44.88',   # Or an IP Address that your DB is hosted on
+        'HOST': '',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
